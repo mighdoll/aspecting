@@ -1,14 +1,17 @@
 package example
 
 class Model extends AnyRef with Observable {
-  var bar:String = _
   var prop:String = _
   var prop2:String = _
-  var prop4:String = _
+  var prop3:String = _
 }
 
-class SubModel extends Model {
-  var sub:String = _
+trait ModelTrait {
+  var traitProp:String = _
+}
+
+class SubModel extends Model with ModelTrait {
+  var subProp:String = _
 }
 
 object Main {
@@ -17,8 +20,9 @@ object Main {
     m.prop = "whee"
 
     val s = new SubModel()
-    s.bar = "fip"
-    s.prop4 = "prop4"
+    s.prop = "superclass prop"
+    s.subProp = "subclass prop"
+    s.traitProp = "trait props too"
   }
 }
 
