@@ -1,7 +1,11 @@
 #!/bin/sh 
 
-#setup paths and directories (edit this!)
-CP=/usr/share/java/scala-library.jar:/usr/local/aspectj1.6/lib/aspectjrt.jar
+# to use:
+#  1) edit CP below to match your local setup
+#  2) edit PATH or change the script for: ajc,scalac,java 
+
+# setup class paths 
+CP=/usr/local/scala-2.7.3.final/lib/scala-library.jar:/usr/local/aspectj1.6/lib/aspectjrt.jar
 rm -rf bin1 bin2 
 mkdir -p bin1 bin2
 
