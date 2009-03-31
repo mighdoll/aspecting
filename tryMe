@@ -1,0 +1,19 @@
+#!/bin/sh 
+
+#setup paths and directories (edit this!)
+CP=/usr/share/java/scala-library.jar:/usr/local/aspectj1.6/lib/aspectjrt.jar
+rm -rf bin1 bin2 
+mkdir -p bin1 bin2
+
+#echo commands
+set -x
+
+#compile
+scalac -d bin1 -target:jvm-1.5 -cp $CP src/example/*.scala src/example/*.java || exit
+
+#weave
+ajc -1.5 -d bin2 -cp $CP -inpath bin1 src/example/*.aj || exit
+
+# run
+java -cp $CP:bin2 example.Main
+

@@ -1,0 +1,33 @@
+An experiment to use aspectJ with scala for property change notification.
+
+It's pretty neat that idiomatic scala properties can be observed for changes
+with almost no changes to the scala source.  (It'd be great if this could be done
+in scala without resorting to aspectJ)
+
+
+The scala class needs only to add the marker trait Observable.
+
+  class Model extends AnyRef with Observable {
+    var prop:String = _
+  }
+
+Modifications to the instance will trigger the aspect.
+
+    val model = new Model()
+    m.prop = "whee"
+
+When I run it, the library tracks the change.
+    ./tryMe
+    change observed> example.Model@6abf2d5e=>> prop:whee
+
+
+The sources are in src/example
+
+To try it yourself:
+1) install aspectj1.6 (I insalled it in /usr/local)
+2) edit the tryMe script 
+  * point at the correct location for the jar files
+  * make sure the script or your $PATH can point to ajc and scalac
+4) ./tryMe
+
+
