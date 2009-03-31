@@ -21,7 +21,7 @@ When I run it, the library tracks the change.
     change observed> example.Model@6abf2d5e=>> prop:whee
 
 
-The sources are in src/example
+The sources are in src/example.  
 
 To try it yourself:
 1) install aspectj1.6 (I insalled it in /usr/local)
