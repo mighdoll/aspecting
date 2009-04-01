@@ -16,5 +16,3 @@ mvn compile
 # run it via exec
 mvn exec:exec
 
-#java  -cp /usr/share/java/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
-

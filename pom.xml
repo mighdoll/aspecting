@@ -130,7 +130,8 @@
         <configuration>
           <executable>java</executable>
           <arguments>
-            <argument>-javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar</argument>
+            <!-- there's got to be a better way! -Lee -->
+            <argument>-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.6.2/aspectjweaver-1.6.2.jar</argument>
             <argument>-classpath</argument> 
               <classpath>
                 <dependency>org.scala-lang:scala-library</dependency>
