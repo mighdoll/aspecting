@@ -16,7 +16,7 @@ set -x
 scalac -d bin1 -target:jvm-1.5 -cp $CP src/example/*.scala src/example/*.java || exit
 
 #weave
-ajc -1.5 -d bin2 -cp $CP -inpath bin1 src/example/*.aj || exit
+ajc -1.5 -d bin2 -cp $CP -inpath bin1 src/aspect/*.aj || exit
 
 # run
 java -cp $CP:bin2 example.Main

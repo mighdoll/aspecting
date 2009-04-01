@@ -3,5 +3,15 @@
 #echo commands
 set -x
 
-java  -cp /usr/local/scala-2.7.3.final/lib/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
+mvn clean
+
+# haven't figured out how to get the plugins to go in the right order
+# (aspectJ should go 2nd!)
+mvn scala:compile
+mvn aspectj:compile
+
+# copy META-INF resources
+mvn compile
+
+java  -cp /usr/share/java/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
 
