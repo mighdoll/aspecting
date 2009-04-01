@@ -87,7 +87,6 @@
           <configuration>
               <source>1.6</source>
               <target>1.6</target>
-              <outxmlfile>foo-aop.xml</outxmlfile>
               <aspectDirectory>src/aspect</aspectDirectory>
           </configuration>
           <executions>

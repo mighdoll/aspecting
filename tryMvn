@@ -13,5 +13,8 @@ mvn aspectj:compile
 # copy META-INF resources
 mvn compile
 
-java  -cp /usr/share/java/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
+# run it via exec
+mvn exec:exec
+
+#java  -cp /usr/share/java/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
 
