@@ -1,0 +1,7 @@
+#!/bin/sh 
+
+#echo commands
+set -x
+
+java  -cp /usr/local/scala-2.7.3.final/lib/scala-library.jar:target/classes -javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar example.Main
+

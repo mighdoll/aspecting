@@ -1,0 +1,9 @@
+<aspectj>
+<aspects>
+<aspect name="example.TryAspect"/>
+</aspects>
+<weaver options="">
+  <include within="example.*" />
+</weaver>
+</aspectj>
+

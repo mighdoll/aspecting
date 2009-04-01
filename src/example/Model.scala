@@ -16,6 +16,8 @@ class SubModel extends Model with ModelTrait {
 
 object Main {
   def main(argv:Array[String]) = {
+    Console println "starting.."
+
     val m = new Model()
     m.prop = "whee"
 
