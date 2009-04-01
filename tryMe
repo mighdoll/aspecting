@@ -5,7 +5,7 @@
 #  2) edit PATH or change the script for: ajc,scalac,java 
 
 # setup class paths 
-CP=/usr/local/scala-2.7.3.final/lib/scala-library.jar:/usr/local/aspectj1.6/lib/aspectjrt.jar
+CP=/usr/share/java/scala-library.jar:/usr/local/aspectj1.6/lib/aspectjrt.jar
 rm -rf bin1 bin2 
 mkdir -p bin1 bin2
 
@@ -16,7 +16,7 @@ set -x
 scalac -d bin1 -target:jvm-1.5 -cp $CP src/example/*.scala src/example/*.java || exit
 
 #weave
-ajc -1.5 -d bin2 -cp $CP -inpath bin1 src/aspect/*.aj || exit
+ajc -1.6 -source 1.6 -target 1.6 -d bin2 -cp $CP -inpath bin1 src/aspect/*.aj || exit
 
 # run
 java -cp $CP:bin2 example.Main
