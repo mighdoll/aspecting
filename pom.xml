@@ -43,9 +43,14 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjrt</artifactId>
-        <version>1.6.2</version>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.6.2</version>
     </dependency>
   </dependencies>
 
@@ -84,11 +89,6 @@
               <target>1.6</target>
               <outxmlfile>foo-aop.xml</outxmlfile>
               <aspectDirectory>src/aspect</aspectDirectory>
-              <!--
-              <includes>
-                <include>*.aj</include>
-              </includes>
-              -->
           </configuration>
           <executions>
               <execution>
@@ -116,6 +116,32 @@
           </classpathContainers>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.1.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-javaagent:/usr/local/aspectj1.6/lib/aspectjweaver.jar</argument>
+            <argument>-classpath</argument> 
+              <classpath>
+                <dependency>org.scala-lang:scala-library</dependency>
+                <dependency>com.digiting:aspecting</dependency>
+              </classpath>
+            <argument>example.Main</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
   <reporting>
