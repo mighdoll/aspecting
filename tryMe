@@ -5,14 +5,4 @@ set -x
 
 mvn clean
 
-# haven't figured out how to get the plugins to go in the right order
-# (aspectJ should go 2nd!)
-mvn scala:compile
-mvn aspectj:compile
-
-# copy META-INF resources
-mvn compile
-
-# run it via exec
-mvn exec:exec
-
+mvn test
