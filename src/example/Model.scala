@@ -1,6 +1,6 @@
 package example
 
-class Model extends AnyRef with Observable {
+class Model extends Observable {
   var prop:String = _
   var prop2:String = _
   var prop3:String = _
